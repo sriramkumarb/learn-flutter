@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,23 +16,11 @@ void main() {
           )),
           backgroundColor: Colors.green[600],
         ),
-        body: Center(
-          child: ElevatedButton.icon(
-            onPressed: () {
-              print('Hi');
-            },
-            icon: Icon(Icons.mail),
-            label: Text('Mail'),
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.green),
-              shadowColor: MaterialStateProperty.all(Colors.green.shade100),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0),
-                side: BorderSide(color: Colors.green),
-              )),
-            ),
-          ),
+        body: Container(
+          padding: EdgeInsets.all(20.0),
+          margin: EdgeInsets.all(20.0),
+          color : Colors.grey,
+          child: Text('Apple'),
         ),
       ),
     ),
