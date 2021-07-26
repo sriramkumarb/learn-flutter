@@ -7,35 +7,37 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: Colors.white,
-          appBar: AppBar(
-            title: Center(
-                child: Text(
-              'Hello Sri!',
-              // style: GoogleFonts.lato(),
-            )),
-            backgroundColor: Colors.green[600],
-          ),
-          body: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text('Apple'),
-              ElevatedButton(
-                  onPressed: (){},
-                  child: Text('Click Me'),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.amber),
-                    foregroundColor: MaterialStateProperty.all(Colors.black),
-                  ),
-
-              ),
-              Container(
-                color: Colors.cyan,
-                padding: EdgeInsets.all(20.0),
-                child: Text('Hello World!'),
-              ),
-            ],
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Center(
+              child: Text(
+            'Hello Sri!',
+            // style: GoogleFonts.lato(),
           )),
+          backgroundColor: Colors.green[600],
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              padding: EdgeInsets.all(20.0),
+              color: Colors.cyan,
+              child: Text('Hi'),
+            ),
+            Container(
+              padding: EdgeInsets.all(30.0),
+              color: Colors.green,
+              child: Text('Hi'),
+            ),
+            Container(
+              padding: EdgeInsets.all(40.0),
+              color: Colors.amber,
+              child: Text('Hi'),
+            ),
+          ],
+        ),
+      ),
     ),
   );
 }
