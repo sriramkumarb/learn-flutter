@@ -8,8 +8,16 @@ void main() {
   );
 }
 
-class ProfileCard extends StatelessWidget {
+class ProfileCard extends StatefulWidget {
   const ProfileCard({Key? key}) : super(key: key);
+
+  @override
+  _ProfileCardState createState() => _ProfileCardState();
+}
+
+class _ProfileCardState extends State<ProfileCard> {
+
+  int roleValue = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +28,15 @@ class ProfileCard extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            roleValue += 1;
+          });
+        },
+        backgroundColor: Colors.grey[800],
+        child: Icon(Icons.add),
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -50,6 +67,24 @@ class ProfileCard extends StatelessWidget {
                 color: Colors.amberAccent,
                 letterSpacing: 1.0,
                 fontSize: 25.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 30.0),
+            Text(
+              'Level',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              '$roleValue',
+              style: TextStyle(
+                color: Colors.amberAccent,
+                letterSpacing: 1.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
