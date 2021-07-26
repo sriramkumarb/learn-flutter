@@ -3,147 +3,37 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: ProfileCard(),
+      home: ListExample(),
     ),
   );
 }
 
-class ProfileCard extends StatefulWidget {
-  const ProfileCard({Key? key}) : super(key: key);
+class ListExample extends StatefulWidget {
+  const ListExample({Key? key}) : super(key: key);
 
   @override
-  _ProfileCardState createState() => _ProfileCardState();
+  _ListExampleState createState() => _ListExampleState();
 }
 
-class _ProfileCardState extends State<ProfileCard> {
+class _ListExampleState extends State<ListExample> {
 
-  int roleValue = 1;
+  List<String> quotes = [
+    'Apple is a fruit',
+    'Mango is a fruit',
+    'Banana is a fruit'
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('Profile Details'),
+        title: Text('List Example'),
         centerTitle: true,
-        backgroundColor: Colors.grey[850],
-        elevation: 0.0,
+        backgroundColor: Colors.redAccent,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            roleValue += 1;
-          });
-        },
-        backgroundColor: Colors.grey[800],
-        child: Icon(Icons.add),
-      ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage('images/owl.jpg'),
-                radius: 40.0,
-              ),
-            ),
-            Divider(
-              height: 50.0,
-              color: Colors.grey[800],
-            ),
-            Text(
-              'NAME',
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              'SRI RAM',
-              style: TextStyle(
-                color: Colors.amberAccent,
-                letterSpacing: 1.0,
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 30.0),
-            Text(
-              'Level',
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              '$roleValue',
-              style: TextStyle(
-                color: Colors.amberAccent,
-                letterSpacing: 1.0,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 30.0),
-            Text(
-              'ROLE',
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              'SOFTWARE DEVELOPER',
-              style: TextStyle(
-                color: Colors.amberAccent,
-                letterSpacing: 1.0,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 30.0),
-            Row(
-              children: [
-                Icon(
-                  Icons.mail,
-                  color: Colors.grey,
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  'thecsengineer@pm.me',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    letterSpacing: 1.0,
-                    fontSize: 18.0,
-                  ),
-                )
-              ],
-            ),
-            SizedBox(height: 30.0),
-            Row(
-              children: [
-                Icon(
-                  Icons.call,
-                  color: Colors.grey,
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  '8072845337',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    letterSpacing: 1.0,
-                    fontSize: 18.0,
-                  ),
-                )
-              ],
-            ),
-          ],
-        ),
+      body: Column(
+        children: quotes.map((quote) => Text(quote)).toList(),
       ),
     );
   }
