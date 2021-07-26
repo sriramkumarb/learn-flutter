@@ -1,43 +1,115 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          title: Center(
-              child: Text(
-            'Hello Sri!',
-            // style: GoogleFonts.lato(),
-          )),
-          backgroundColor: Colors.green[600],
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+      home: ProfileCard(),
+    ),
+  );
+}
+
+class ProfileCard extends StatelessWidget {
+  const ProfileCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[900],
+      appBar: AppBar(
+        title: Text('Profile Details'),
+        centerTitle: true,
+        backgroundColor: Colors.grey[850],
+        elevation: 0.0,
+      ),
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              padding: EdgeInsets.all(20.0),
-              color: Colors.cyan,
-              child: Text('Hi'),
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('images/owl.jpg'),
+                radius: 40.0,
+              ),
             ),
-            Container(
-              padding: EdgeInsets.all(30.0),
-              color: Colors.green,
-              child: Text('Hi'),
+            Divider(
+              height: 50.0,
+              color: Colors.grey[800],
             ),
-            Container(
-              padding: EdgeInsets.all(40.0),
-              color: Colors.amber,
-              child: Text('Hi'),
+            Text(
+              'NAME',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              'SRI RAM',
+              style: TextStyle(
+                color: Colors.amberAccent,
+                letterSpacing: 1.0,
+                fontSize: 25.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 30.0),
+            Text(
+              'ROLE',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              'SOFTWARE DEVELOPER',
+              style: TextStyle(
+                color: Colors.amberAccent,
+                letterSpacing: 1.0,
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 30.0),
+            Row(
+              children: [
+                Icon(
+                  Icons.mail,
+                  color: Colors.grey,
+                ),
+                SizedBox(width: 10.0),
+                Text(
+                  'thecsengineer@pm.me',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    letterSpacing: 1.0,
+                    fontSize: 18.0,
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: 30.0),
+            Row(
+              children: [
+                Icon(
+                  Icons.call,
+                  color: Colors.grey,
+                ),
+                SizedBox(width: 10.0),
+                Text(
+                  '8072845337',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    letterSpacing: 1.0,
+                    fontSize: 18.0,
+                  ),
+                )
+              ],
             ),
           ],
         ),
       ),
-    ),
-  );
+    );
+  }
 }
