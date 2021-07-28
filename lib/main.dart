@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quote.dart';
+import 'quote_card.dart';
 void main() {
   runApp(
     MaterialApp(
@@ -23,33 +24,9 @@ class _ListExampleState extends State<ListExample> {
     Quote(text: 'Apple is a fruit', author: 'Sriram')
   ];
 
-  Widget quoteCard(quote){
-    return Card(
-      margin: EdgeInsets.fromLTRB(16.0,16.0,16.0,0),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-        children: [
-          Text(
-            quote.text,
-            style: TextStyle(
-              fontSize: 18.0,
-              color: Colors.grey[600],
-            ),
-          ),
-          SizedBox(height: 6.0),
-          Text(
-            quote.author,
-            style: TextStyle(
-              fontSize: 14.0,
-              color: Colors.grey[800],
-            ),
-          )
-        ],
-      ),
-      )
-    );
-  }
+  // Widget quoteCard(quote){
+  //   return QuoteCardTemplate(quote: quote);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +38,10 @@ class _ListExampleState extends State<ListExample> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => quoteCard(quote)).toList(),
+        children: quotes.map((quote) => QuoteCardTemplate(quote: quote)).toList(),
       ),
     );
   }
 }
+
+
