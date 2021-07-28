@@ -38,7 +38,14 @@ class _ListExampleState extends State<ListExample> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => QuoteCardTemplate(quote: quote)).toList(),
+        children: quotes.map((quote) => QuoteCardTemplate(
+            quote: quote,
+            delete: (){
+              setState(() {
+                quotes.remove(quote);
+              });
+            }
+        )).toList(),
       ),
     );
   }
